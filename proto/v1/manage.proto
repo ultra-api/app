@@ -1,0 +1,38 @@
+syntax = 'proto3';
+
+package ultra.app.v1.manage;
+
+import "app/proto/v1/structures.proto";
+
+service ManageService {
+    rpc CreateApp(CreateAppRequest) returns (CreateAppResponse) {}
+}
+
+message CreateAppRequest {
+    // Application name to display in UI
+    string name = 1;
+
+    // Force separate application services instead using existing when possible
+    bool isolated = 2;
+
+    // Application params depending on its type
+    oneof params {
+        structures.AppParamsLamp lamp = 3;
+    }
+}
+
+message CreateAppResponse {
+    oneof result {
+        structures.AppInfo app = 1;
+        Error error = 2;
+    }
+
+    message Error {
+        Code code = 1;
+        string message = 2;
+
+        enum Code {
+            INTERNAL_ERROR = 0;
+        }
+    }
+}

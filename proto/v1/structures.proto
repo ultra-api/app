@@ -1,0 +1,52 @@
+syntax = 'proto3';
+
+package ultra.app.v1.structures;
+
+
+// General information about application
+message AppInfo {
+    // Application identifier
+    uint64 id = 1;
+
+    // Pretty application name for usage in URL
+    string slug = 2;
+
+    // Application name for displaying
+    string name = 3;
+
+    // Creation date in RFC3339 format
+    string date_create = 4;
+
+    // Current application status
+    AppStatus status = 5;
+
+    // Application type
+    AppType type = 6;
+}
+
+
+// Application params for LAMP type
+message AppParamsLamp {
+    // Application initial PHP version
+    string php_version = 1;
+
+    // Application initial MySQL version
+    string mysql_version = 2;
+
+    // Application initial MySQL database name
+    string db_name = 3;
+
+    // Application initial MySQL database password
+    string db_password = 4;
+}
+
+enum AppStatus {
+    CREATING = 0;
+    RUNNING = 1;
+    REMOVED = 2;
+}
+
+enum AppType {
+    _ = 0;
+    LAMP = 1;
+}
