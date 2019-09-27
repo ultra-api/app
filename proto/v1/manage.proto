@@ -5,7 +5,7 @@ package ultra.app.v1.manage;
 import "app/proto/v1/structures.proto";
 
 service ManageService {
-    rpc CreateApp(CreateAppRequest) returns (CreateAppResponse) {}
+    rpc createApp(CreateAppRequest) returns (CreateAppResponse) {}
 }
 
 message CreateAppRequest {
