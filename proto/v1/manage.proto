@@ -19,6 +19,9 @@ message CreateAppRequest {
     oneof params {
         structures.AppParamsLamp lamp = 3;
     }
+    
+    // On what node should the app be located
+    uint32 node_id = 4;
 }
 
 message CreateAppResponse {
