@@ -5,7 +5,7 @@ package ultra.app.v1.manage;
 import "app/proto/v1/structures.proto";
 
 service ManageService {
-    rpc CreateApp(CreateAppRequest) returns (CreateAppResponse) {}
+    rpc createApp(CreateAppRequest) returns (CreateAppResponse) {}
 }
 
 message CreateAppRequest {
@@ -19,6 +19,9 @@ message CreateAppRequest {
     oneof params {
         structures.AppParamsLamp lamp = 3;
     }
+    
+    // On what node should the app be located
+    uint32 node_id = 4;
 }
 
 message CreateAppResponse {
