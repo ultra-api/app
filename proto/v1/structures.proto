@@ -22,6 +22,9 @@ message AppInfo {
 
     // Application type
     AppType type = 6;
+    
+    // Node id
+    uint64 node_id = 7;
 }
 
 
